@@ -58,10 +58,22 @@ type ClusterConfig struct {
 	WipeDisks       bool `json:"wipeDisks,omitempty"`
 }
 
+type NodeRole string
+
+const (
+	NodeRoleDefault    NodeRole = "Default"
+	NodeRoleManagement NodeRole = "Management"
+	NodeRoleWitness    NodeRole = "Witness"
+	NodeRoleWorker     NodeRole = "Worker"
+)
+
 type NodeConfig struct {
 	InventoryReference   ObjectReference `json:"inventoryReference"`
 	AddressPoolReference ObjectReference `json:"addressPoolReference"`
 	StaticAddress        string          `json:"staticAddress,omitempty"`
+	// +kubebuilder:default=Default
+	// +kubebuilder:validation:Enum=Default;Management;Witness;Worker
+	Role                 NodeRole        `json:"role,omitempty"`
 }
 
 type ObjectReference struct {

@@ -18,7 +18,7 @@ import (
 
 func Test_createModeCloudConfig(t *testing.T) {
 	assert := require.New(t)
-	cloudConfig, err := generateCloudConfig("file:///testdata/create.yaml", "ab:cd:ef:gh:ij:kl", "create", "192.168.1.100", "token", "password", "192.168.1.101", "255.255.255.0", "192.168.1.1", []string{"8.8.8.8"}, []string{"ssh-key 1", "ssh-key 2"}, nil, "http://imagestore/iso", "v1.2.1", "http://seeder-endpoint", "sample", "harvester-system", false, true, 1, "amd64", "/dev/vda", "test")
+	cloudConfig, err := generateCloudConfig("file:///testdata/create.yaml", "ab:cd:ef:gh:ij:kl", "create", "192.168.1.100", "token", "password", "192.168.1.101", "255.255.255.0", "192.168.1.1", []string{"8.8.8.8"}, []string{"ssh-key 1", "ssh-key 2"}, nil, "http://imagestore/iso", "v1.2.1", "Default", "http://seeder-endpoint", "sample", "harvester-system", false, true, 1, "amd64", "/dev/vda", "test")
 	assert.NoError(err)
 	hc := config.NewHarvesterConfig()
 	err = yaml.Unmarshal([]byte(cloudConfig), hc)
@@ -42,7 +42,7 @@ func Test_createModeCloudConfig(t *testing.T) {
 
 func Test_joinModeCloudConfig(t *testing.T) {
 	assert := require.New(t)
-	cloudConfig, err := generateCloudConfig("file:///testdata/create.yaml", "ab:cd:ef:gh:ij:kl", "join", "192.168.1.100", "token", "password", "192.168.1.101", "255.255.255.0", "192.168.1.1", []string{"8.8.8.8"}, []string{"ssh-key 1", "ssh-key 2"}, nil, "http://imagestore/iso", "v1.2.1", "http://seeder-endpoint", "sample", "harvester-system", false, true, 1, "amd64", "/dev/vda", "test")
+	cloudConfig, err := generateCloudConfig("file:///testdata/create.yaml", "ab:cd:ef:gh:ij:kl", "join", "192.168.1.100", "token", "password", "192.168.1.101", "255.255.255.0", "192.168.1.1", []string{"8.8.8.8"}, []string{"ssh-key 1", "ssh-key 2"}, nil, "http://imagestore/iso", "v1.2.1", "Default", "http://seeder-endpoint", "sample", "harvester-system", false, true, 1, "amd64", "/dev/vda", "test")
 	assert.NoError(err)
 	hc := config.NewHarvesterConfig()
 	err = yaml.Unmarshal([]byte(cloudConfig), hc)
@@ -290,7 +290,7 @@ func Test_GenerateHardwareRequestV11(t *testing.T) {
 
 func Test_createModeCloudConfigV11(t *testing.T) {
 	assert := require.New(t)
-	cloudConfig, err := generateCloudConfig("file:///testdata/create.yaml", "ab:cd:ef:gh:ij:kl", "create", "192.168.1.100", "token", "password", "192.168.1.101", "255.255.255.0", "192.168.1.1", []string{"8.8.8.8"}, []string{"ssh-key 1", "ssh-key 2"}, nil, "http://imagestore/iso", "v1.1.2", "http://seeder-endpoint", "sample", "harvester-system", false, true, 1, "amd64", "/dev/vda", "test")
+	cloudConfig, err := generateCloudConfig("file:///testdata/create.yaml", "ab:cd:ef:gh:ij:kl", "create", "192.168.1.100", "token", "password", "192.168.1.101", "255.255.255.0", "192.168.1.1", []string{"8.8.8.8"}, []string{"ssh-key 1", "ssh-key 2"}, nil, "http://imagestore/iso", "v1.1.2", "Default", "http://seeder-endpoint", "sample", "harvester-system", false, true, 1, "amd64", "/dev/vda", "test")
 	assert.NoError(err)
 	hc := config.NewHarvesterConfig()
 	err = yaml.Unmarshal([]byte(cloudConfig), hc)
@@ -315,7 +315,7 @@ func Test_createModeCloudConfigV11(t *testing.T) {
 
 func Test_joinModeCloudConfigV11(t *testing.T) {
 	assert := require.New(t)
-	cloudConfig, err := generateCloudConfig("file:///testdata/create.yaml", "ab:cd:ef:gh:ij:kl", "join", "192.168.1.100", "token", "password", "192.168.1.101", "255.255.255.0", "192.168.1.1", []string{"8.8.8.8"}, []string{"ssh-key 1", "ssh-key 2"}, nil, "http://imagestore/iso", "v1.1.2", "http://seeder-endpoint", "sample", "harvester-system", false, true, 1, "amd64", "/dev/vda", "test")
+	cloudConfig, err := generateCloudConfig("file:///testdata/create.yaml", "ab:cd:ef:gh:ij:kl", "join", "192.168.1.100", "token", "password", "192.168.1.101", "255.255.255.0", "192.168.1.1", []string{"8.8.8.8"}, []string{"ssh-key 1", "ssh-key 2"}, nil, "http://imagestore/iso", "v1.1.2", "Default", "http://seeder-endpoint", "sample", "harvester-system", false, true, 1, "amd64", "/dev/vda", "test")
 	assert.NoError(err)
 	hc := config.NewHarvesterConfig()
 	err = yaml.Unmarshal([]byte(cloudConfig), hc)
